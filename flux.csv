@@ -1,0 +1,32 @@
+Habitat ,Sub type,Carbon flux (t CO2e ha-1 y-1 ) 
+Woodland ,Mixed native broadleaved woodland (100 year) ,-7
+Woodland ,Mixed native broadleaved woodland (30 years) ,-14.5
+Hedgerow ,Hedgerows ,-1.99
+Orchards ,Traditional orchard with low intensity management ,-2.89
+Orchards ,Intensive orchard ,-5.99
+Heathlands ,Lowland heathland & Upland heathlands ,0.054
+Semi-natural grasslands ,Arable reversion to low input grassland ,-1.59
+Semi-natural grasslands ,Undisturbed semi-natural grassland under long-term management ,0
+Farmland ,Arable land use ,0.29
+Farmland ,Improved grasslands ,-0.36
+Farmland ,Intensive grassland on deep peat soils ,24.87
+Peatland ,Near Natural Fen (undrained) ,-0.93
+Peatland ,Near Natural Bog (undrained) ,-0.02
+Peatland ,Rewetted Bog ,3.87
+Peatland ,Rewetted Fen ,8.05
+Peatland ,Rewetted Modified (Semi-natural) Bog ,-0.02
+Peatland ,Modified Bog (semi-natural Heather + Grass dominated – Drained) ,3.48
+Peatland ,Modified Bog (semi-natural Heather + Grass dominated – Undrained) ,2.25
+Peatland ,Eroding Modified Bog (bare peat) - Drained ,13.14
+Peatland ,Eroding Modified Bog (bare peat) - Undrained ,12.03
+Peatland ,Extracted Domestic (drained) ,13.23
+Peatland ,Extracted Industrial (drained) ,13.14
+Peatland ,Cropland ,32.89
+Peatland ,Intensive Grassland ,24.87
+Peatland ,Extensive Grassland (combined bog/fen) ,11.02
+Coastal Habitats ,Sand dunes ,-2.18
+Coastal Habitats ,Saltmarsh ,-5.19
+Marine Habitats ,Intertidal sediments  ,-1.98
+Marine Habitats ,Subtidal sediments  ,-1.12
+Marine Habitats ,Kelp (donor flux),11.63
+Marine Habitats ,Kelp (receiver flux),-0.33

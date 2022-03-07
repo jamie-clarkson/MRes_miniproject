@@ -1,0 +1,24 @@
+Habitat,Subtype,Carbon stored (t C ha-1),Carbon flux (t CO2e ha-1 y-1 )
+Woodland,100 year Mixed native broadleaved woodland on mineral soil (to 1m),354,-7
+Woodland,100 year Mixed native broadleaved woodland (to 15cm soil depth),354,-7
+Woodland,30 year mixed broadleaved native woodland on mineral soil (to 1m),255,-14.5
+Woodland,30 year mixed broadleaved native woodland (to 15cm soil depth),169,-14.5
+Hedgerow,Minimal/ Un manged Hedgerows,144.5,-1.99
+Orchards,Traditional Orchards,95.15,-2.89
+Heathlands,Upland & lowland Heathland,100,0.054
+Semi-natural grasslands,Acid grassland (without vegetation),87,0
+Semi-natural grasslands,Calcareous grassland,69,0
+Semi-natural grasslands,Neutral grassland,60,0
+Farmland,Arable / cultivated land,120,0.29
+Farmland,Improved grassland,130,-0.36
+Farmland,Intensive grassland on deep peat soils,1980,24.87
+Farmland,Arable on deep peat soils,1980,24.87
+Peatland,Blanket Bog 200cm,799,-0.02
+Peatland,Blanket Bog 50cm,259,-0.02
+Peatland,Raised Bog,1610,-0.02
+Peatland,Fens (on deep peat),1971,-0.93
+Coastal Habitats,Sand dunes,0.0145,-2.18
+Coastal Habitats,Saltmarsh,56.6,-5.19
+Marine Habitats,Intertidal sediments (sandflats and mudflats),12,-1.98
+Marine Habitats,Subtidal sediment (mud),55,-1.12
+Marine Habitats,Subtidal sediment (sand),18,-1.12

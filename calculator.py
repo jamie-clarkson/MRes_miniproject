@@ -51,7 +51,7 @@ def biodiversity_calculator(post_intervention,size,distinctiveness,condition,str
         biodiversity_units = size*distinctiveness*condition*strategic_location*connectivity*difficulty*time_to_target_condition*off_site_risk   #formula for post intervention biodiversity units
         return biodiversity_units
         
-def carbon_calculator(size,storage,flux,years = 30):
+def carbon_calculator(size,storage,flux,years = 30,post_intervention=False):
     """
     Parameters
     ----------
@@ -63,41 +63,23 @@ def carbon_calculator(size,storage,flux,years = 30):
         Carbon that will be removed over time, in tonnes per hectare per year
     years : float, optional
         The default is 30. Timescale over which to do removal calculation
-
+    post_intervention : Boolean, optional
+        The default is False. If we are calculating the carbon post intervention (True) or pre intervention (False). 
+        
     Returns
     -------
     carbon_removed: float
         The caron stored over the time period
 
     """
-    
-    carbon_removed = size*(0*storage - flux*years)   #I'm currently unsure whether to use the storage or not - probably should consider it for a pre intervention habitat but not post
+    if post_intervention == False:
+        carbon_removed = size*(storage - flux*years)   #I'm currently unsure whether to use the storage or not - probably should consider it for a pre intervention habitat but not post
+    if post_intervention == True:
+        carbon_removed = size*(0*storage - flux*years) 
     return carbon_removed    #positive is good
 
 
 
-def evaluate_change(habitat_values_before,habitat_values_after):  
-    """
-    Parameters
-    ----------
-    habitat_values_before : Dictionary
-        the habitat values for the habitat pre intervention, as items in a dicitonary.
-    habitat_values_after : Dictionary
-        the habitat values for the habitat pre intervention, as items in a dicitonary.. 
-
-    Returns
-    -------
-    None.  Not sure why this function exists tbh
-
-    """
-
-    b0 = biodiversity_calculator(False, habitat_values_before['size'], habitat_values_before['distinctiveness'], habitat_values_before['condition'], habitat_values_before['strategic_location'], habitat_values_before['connectivity'])
-    b1 = biodiversity_calculator(True, habitat_values_after['size'], habitat_values_after['distinctiveness'], habitat_values_after['condition'], habitat_values_after['strategic_location'], habitat_values_after['connectivity'],habitat_values_after['difficulty'],habitat_values_after['time_to_target_condition'],habitat_values_after['off_site_risk'])
-       
-    
-    c0 = carbon_calculator(habitat_values_before['size'], habitat_values_before['storage'], habitat_values_before['flux'],years = 30)
-    c1 = carbon_calculator(habitat_values_after['size'], habitat_values_after['storage'], habitat_values_after['flux'],years = 30)
-        
           
 def evaluate_biodiversity_before(habitats_before):
     """
@@ -151,7 +133,7 @@ def evaluate_carbon_before(habitats_before):
     """
     C0 = 0
     for habitat_values_before in habitats_before:
-        c0 = carbon_calculator(habitat_values_before['size'],habitat_values_before['storage'],habitat_values_before['flux'],years = 30)
+        c0 = carbon_calculator(habitat_values_before['size'],habitat_values_before['storage'],habitat_values_before['flux'],years = 30,post_intervention=False)
         C0 = C0 + c0
     return C0
         
@@ -170,7 +152,7 @@ def evaluate_carbon_after(habitats_after):
     """
     C1 = 0
     for habitat_values_after in habitats_after:
-        c1 = carbon_calculator(habitat_values_after['size'],habitat_values_after['storage'],habitat_values_after['flux'],years = 30)
+        c1 = carbon_calculator(habitat_values_after['size'],habitat_values_after['storage'],habitat_values_after['flux'],years = 30,post_intervention=True)
         C1 = C1 + c1        
     return C1  
         
@@ -377,6 +359,8 @@ def calculate_all_changes(habitats_before,habitats_after):
 
 random_habitat_before = generate_habitat_before()
 
+#uncomment to specify a specific habitat
+#random_habitat_before = {'habitat_name': 'Farmland, Arable / cultivated land, Intensive orchards', 'Habitat': 'Farmland', 'Distinct_subtype': 'Intensive orchards', 'Carbon_subtype': 'Arable / cultivated land', 'size': 13.85438003606401, 'storage': 120.0, 'flux': 0.29, 'distinctiveness': 2, 'condition': 1.5, 'strategic_location': 1, 'connectivity': 1}
 
 
 def run_through_all_otions(habitat_before):
@@ -467,6 +451,8 @@ plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), shadow=False, ncol=2
 plt.xlabel('Biodiversity change')
 plt.ylabel('Change in carbon sequestered \n (tonnes over 30 years)')
 plt.title('Previous habitat: \n' +str(random_habitat_before['habitat_name']))
+name = random_habitat_before["habitat_name"]
+plt.savefig('Calculator_example_from'  + str(name) +'.png',dpi=300,bbox_inches="tight")
 plt.show()
 
 #all_habs = x['Habitat'].value_counts(dropna=False)
